@@ -1,0 +1,14 @@
+{
+  "name": "workspace",
+  "version": "0.0.0",
+  "authors": [
+    "EDERSON SILVA <edersondiassilva@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1.3",
+    "angular-route": "1.3",
+    "bootstrap": "3.3",
+    "angular-resource": "1.3"
+  }
+}
