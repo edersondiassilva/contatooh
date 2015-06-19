@@ -33,6 +33,7 @@ angular.module('contatooh').controller('ContatoController',
                         texto: 'Não foi possível salvar'
                     };
                 });
+            $scope.$broadcast('contatoSalvo');
         };
 
         Contato.query(function(contatos) {

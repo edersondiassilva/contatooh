@@ -14,7 +14,7 @@ Bem-vindo ao Contatooh
 <p class="text-info" ng-hide="contatos.length">
     Não há contatos cadastrados
 </p>
-<div class="table-responsive">
+<div data-meu-painel titulo="Listagem de contatos" class="table-responsive">
     <table class="table table-hover">
         <tr>
             <th>NOME</th>
@@ -29,9 +29,7 @@ Bem-vindo ao Contatooh
             <td>{{contato.email}}</td>
             <td>{{contato.emergencia.nome}}</td>
             <td class="text-center">
-                <button ng-click="remove(contato)" class="btn btn-warning">
-                    Remover
-                </button>
+                <meu-botao-aviso nome="Remover" acao="remove(contato)"></meu-botao-aviso>
             </td>
         </tr>
     </table>

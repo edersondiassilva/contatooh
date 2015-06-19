@@ -15,14 +15,16 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'https://contatooh-edersondiassilva.c9.io/public/vendor/angular/angular.js',
-      'https://contatooh-edersondiassilva.c9.io/public/vendor/angular-mocks/angular-mocks.js',
-      'https://contatooh-edersondiassilva.c9.io/public/vendor/angular-resource/angular-resource.js',
-      'https://contatooh-edersondiassilva.c9.io/public/vendor/angular-route/angular-route.js',
-      'https://contatooh-edersondiassilva.c9.io/public/js/main.js',
-      'https://contatooh-edersondiassilva.c9.io/public/js/controllers/**/*.js',
-      'https://contatooh-edersondiassilva.c9.io/public/js/services/**/*.js',
-      'https://contatooh-edersondiassilva.c9.io/test/spec/**/*Spec.js'
+      '../public/vendor/angular/angular.js',
+      '../public/vendor/angular-mocks/angular-mocks.js',
+      '../public/vendor/angular-resource/angular-resource.js',
+      '../public/vendor/angular-route/angular-route.js',
+      '../public/js/main.js',
+      '../public/js/controllers/**/*.js',
+      '../public/js/services/**/*.js',
+      '../public/js/directives/**/*.js',
+      '../test/spec/**/*Spec.js',
+      '../public/js/directives/meus-componentes/*.html'
     ],
 
 
@@ -32,7 +34,9 @@ module.exports = function(config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {},
+    preprocessors: {
+      '../public/js/directives/**/*.html': 'ng-html2js'
+    },
 
 
     // test results reporter to use
@@ -65,6 +69,16 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true
+    singleRun: true,
+    plugins: [
+      'karma-ng-html2js-preprocessor',
+      'karma-chrome-launcher',
+      'karma-phantomjs-launcher',
+      'karma-jasmine'
+    ],
+    ngHtml2JsPreprocessor: {
+      moduleName: 'templates',
+      stripPrefix: '.*/public/'
+    }
   });
 };
